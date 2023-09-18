@@ -4,29 +4,27 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
 <style>
-    
+    .item{
+      
+        
+    }
 </style>
 </head>
-<body>
-<div style="height: 100vh; width: 100%; " class="d-flex justify-content-center align-items-center">
-    <div  class="d-flex justify-content-center align-items-center" style="flex-direction: column;">
-        <div class="d-flex" >
+<body> 
+<div style="height: 100vh; width: 100%; border:3px solid black;" class="d-flex justify-content-center align-items-center flex-column">
+        <div class="d-flex mb-4"  >
             <img src="/images/ikhsan.JPEG" style="border-radius:50%;width:20vh;height:20vh;"/>
         </div>
-        <div class="d-flex">
-            <div>Nama</div>
-            <div>:</div>
-            <div><?= $nama ?></div>
+    <div  class="d-flex justify-content-center align-items-start p-5 text-left" style="border-radius:10px;flex-direction: column;border:3px solid black">
+       
+        <div class="d-flex p-3 item">
+            <div>Nama : <?= $nama ?></div>
         </div>
-        <div class="d-flex">
-            <div>Kelas</div>
-            <div>:</div>
-            <div><?= $kelas ?></div>
+        <div class="d-flex p-3 item">
+            <div>Kelas : <?= $kelas ?></div>
         </div>
-        <div class="d-flex">
-            <div>Npm</div>
-            <div>:</div>
-            <div><?= $npm ?></div>
+        <div class="d-flex p-3 item">
+            <div>Npm : <?= $npm ?></div>
         </div>
     </div>
 </div>

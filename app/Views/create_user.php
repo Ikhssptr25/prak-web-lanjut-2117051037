@@ -1,9 +1,10 @@
 <?= $this->extend('layouts/app')?>
 <?=$this->section('content')?>
 
-    <div class="d-flex justify-content-center align-items-center flex-column" style="width: 100vw; height: 100vh; background: none;">
+    <div class="d-flex justify-content-center align-items-center flex-column" style="width: 100vw; height: 100vh; background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);color:white;">
         <h2>Biodata</h2>
-        <form class="d-flex flex-column mt-3" action="<?= base_url('/user/store') ?>" method="POST" style="border: 5px solid yellow; padding: 30px;">
+        <form class="d-flex flex-column mt-3" action="<?= base_url('/user/store') ?>" method="POST" style="border: 5px solid black; padding: 30px;" enctype="multipart/form-data">
         <label for="nama">Nama</label><br>
 <input type="text" id="nama" name="nama" value="<?= old('nama') ?>">
 
@@ -32,6 +33,8 @@
                 <?php endforeach; ?>
             </select><br>
 
+            
+            <input type="file" name="foto" id="foto" class="form-control"><br>
             <input type="submit" value="Submit">
         </form>
     </div>

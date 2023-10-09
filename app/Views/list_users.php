@@ -2,14 +2,21 @@
 
 <?= $this->section('content')?>
 <!DOCTYPE html>
+<div class="row">
+    
+    <a class="btn btn-primary mt-3" href="<?=base_url('user/create')?>" style="width:150px;margin-left:50px;">tambah data</a>
+</div>
+</div>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabel Mahasiswa</title>
+
+
     <!-- Memasukkan link CSS Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Menambahkan CSS tambahan untuk mempercantik tampilan -->
+
     <style>
         .container {
             margin-top: 20px;
@@ -54,9 +61,11 @@
                         <td><?= $user['nama'] ?></td>
                         <td><?= $user['npm'] ?></td>
                         <td><?= $user['nama_kelas'] ?></td>
-                        <td>
-                            <button class="btn btn-edit">Edit</button>
-                            <button class="btn btn-delete">Delete</button>
+                        <td class="text-center">
+                            
+                            <button class="btn btn-edit mx-1 ">Edit</button>
+                            <button class="btn btn-delete mx-1">Delete</button>
+                            <a class="btn btn-success mx-1" href="<?=base_url('/user/'.$user['id'])?>">Detail</a>
                         </td>
                     </tr>
                 <?php } ?>

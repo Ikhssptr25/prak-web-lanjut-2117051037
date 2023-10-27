@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabel Mahasiswa</title>
+    
 
 
     <!-- Memasukkan link CSS Bootstrap -->
@@ -61,11 +62,19 @@
                         <td><?= $user['nama'] ?></td>
                         <td><?= $user['npm'] ?></td>
                         <td><?= $user['nama_kelas'] ?></td>
-                        <td class="text-center">
-                            
-                            <button class="btn btn-edit mx-1 ">Edit</button>
-                            <button class="btn btn-delete mx-1">Delete</button>
-                            <a class="btn btn-success mx-1" href="<?=base_url('/user/'.$user['id'])?>">Detail</a>
+                        <td style="display: flex;" class="align-middle text-center">
+                      
+                    <a class="btn btn-edit mx-1" href="<?= base_url('user/' . $user['id'] . '/edit') ?>"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a class="btn btn-success mx-1" href="<?= base_url('user/' . $user['id']) ?>"><i class="fas fa-eye text-dark me-2" aria-hidden="true"></i>Detail</a>
+                      
+                        <form action="<?= base_url('user/' . $user['id']) ?>" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <?= csrf_field() ?>
+                        <button class="btn btn-delete mx-1" >
+                          <i class="fas fa-trash text-dark me-2" aria-hidden="true"></i>
+                          Delete
+                        </button>
+                        </form>
                         </td>
                     </tr>
                 <?php } ?>

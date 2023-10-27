@@ -4,9 +4,12 @@
     <div class="d-flex justify-content-center align-items-center flex-column" style="width: 100vw; height: 100vh; background: rgb(2,0,36);
 background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);color:white;">
         <h2>Biodata</h2>
-        <form class="d-flex flex-column mt-3" action="<?= base_url('/user/store') ?>" method="POST" style="border: 5px solid black; padding: 30px;" enctype="multipart/form-data">
+        <form class="d-flex flex-column mt-3" action="<?= base_url('/user/' .  $user['id']) ?>" method="POST" style="border: 5px solid black; padding: 30px;" enctype="multipart/form-data">
+        <?= csrf_field()?>
+        <input type="hidden" name="_method" value="PUT">
+
         <label for="nama">Nama</label><br>
-<input type="text" id="nama" name="nama" value="<?= old('nama') ?>">
+<input type="text" id="nama" name="nama" value="<?= $user['nama']?>">
 
 <?php if (session()->getFlashdata('validationErrors') && array_key_exists('nama', session()->getFlashdata('validationErrors'))) : ?>
     <div class="invalid-feedback">
@@ -14,8 +17,9 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(
     </div>
 <?php endif; ?>
 <br>
+
 <label for="npm">NPM</label>
-<input type="text" class="form-control mt-2 <?= session()->getFlashdata('validationErrors') && session()->getFlashdata('validationErrors')['npm'] ? 'is-invalid' : '' ?>" id="npm" placeholder="NPM" name="npm" value="<?= old('npm') ?>">
+<input type="text" class="form-control mt-2 <?= session()->getFlashdata('validationErrors') && session()->getFlashdata('validationErrors')['npm'] ? 'is-invalid' : '' ?>" id="npm" placeholder="NPM" name="npm" value="<?= $user['npm'] ?>">
 
 <?php if (session()->getFlashdata('validationErrors') && session()->getFlashdata('validationErrors')['npm']) : ?>
     <div class="invalid-feedback">
@@ -27,13 +31,14 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(
             <label for="kelas">Kelas</label>
             <select name="kelas" id="kelas">
                 <?php foreach ($kelas as $item) : ?>
-                    <option value="<?= $item['id'] ?>">
+                    <option value="<?= $item['id'] ?>" <?user['id_kelas'] == $item ['id'] ?  'selected' : '' ?>>
                         <?= $item['nama_kelas'] ?>
                     </option>
                 <?php endforeach; ?>
             </select><br>
 
             
+            <img src="<?= $use['foto'] ?? '<default-foto>'?>">
             <input type="file" name="foto" id="foto" class="form-control"><br>
             <input type="submit" value="Submit">
         </form>
